@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>student details</h3>
+    <form action="{% url 'store'%}" method="POST">
+        {% csrf_token%}
+        <table>
+            <tr>
+                <td><input type="text" name="name" placeholder="enter Name" required></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="fathername" placeholder="enter Fathername" required></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="gender">Male
+                    <input type="radio" name="gender">female
+                </td>
+            </tr>
+            <tr>
+                <td><input type="date" name="dob" placeholder="enter Dob" required></td>
+            </tr>
+            <tr>
+                <td><input type="email" name="email" placeholder="enter Email" required></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="mark" placeholder="enter Mark" required></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="fees" placeholder="enter Fees" required></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="phonenumber" placeholder="enter PhoneNumber" required></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="address" placeholder="enter Address" required></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
