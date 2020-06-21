@@ -19,6 +19,7 @@ def details(request):
 	return render(request,"test/details.html")
 def store(request): 
 	print("it working")
+	# image=request.POST['image']
 	name=request.POST['name']
 	fathername=request.POST['fathername']
 	gender=request.POST['gender']
@@ -32,3 +33,6 @@ def store(request):
 	 email=email,mark=mark,fees=fees,phonenumber=phonenumber, address=address)
 	records.save()
 	return render(request,"test/details.html")
+def view(request):
+	getdetail=record.objects.all()
+	return render(request,"test/view.html",{'getdetails':getdetail})

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>view student details</h3>
+    <table border="10">
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>name</td>
+                <td>fathername</td>
+                <td>gender</td>
+                <td>dob</td>
+                <td>email</td>
+                <td>mark</td>
+                <td>fees</td>
+                <td>phonenumber</td>
+                <td>address</td>
+            {%for mov in getdetails%}
+            <tr>
+                <td>{{mov.id}}</td>
+                <td>{{mov.name}}</td>
+                <td>{{mov.fathername}}</td>
+                <td>{{mov.gender}}</td>
+                <td>{{mov.dob}}</td>
+                <td>{{mov.email}}</td>
+                <td>{{mov.mark}}</td>
+                <td>{{mov.fees}}</td>
+                <td>{{mov.phonenumber}}</td>
+                <td>{{mov.address}}</td>
+        </tr>
+            {%endfor%}
+        </tr>
+        </thead>
+
+    </table>
+    
+</body>
+<div>
+    <ul>
+    <li><a href="#">go back</a></li>
+    </ul>
+    </div>
+</html>
