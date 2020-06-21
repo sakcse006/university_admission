@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^home/$',views.home,name='home'),
     url(r'^details/$',views.details,name='details'),
     url(r'^store/$',views.store,name='store'),
+    url(r'^view/$',views.view,name='view'),
 
 ]
