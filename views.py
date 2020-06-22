@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.core.files.storage import FileSystemStorage
 from .models import office
 from .models import record
 
@@ -14,12 +15,20 @@ def home(request):
 	else:
 		print("not work")
 		return render(request,"test/index.html")
+	
 
 def details(request):
 	return render(request,"test/details.html")
 def store(request): 
 	print("it working")
-	# image=request.POST['image']
+	if request.method=='POST' and request.FILES['image']:
+		files=request.FILES['image']
+		fs=FileSystemStorage()
+		image=fs.save(files.name,files)
+		print(image)
+		print(type(image))
+	else:
+		print("filed")
 	name=request.POST['name']
 	fathername=request.POST['fathername']
 	gender=request.POST['gender']
@@ -29,7 +38,7 @@ def store(request):
 	fees=request.POST['fees']
 	phonenumber=request.POST['phonenumber']
 	address=request.POST['address']
-	records=record(name=name,fathername=fathername,gender=gender,dob=dob,
+	records=record(image=image, name=name,fathername=fathername,gender=gender,dob=dob,
 	 email=email,mark=mark,fees=fees,phonenumber=phonenumber, address=address)
 	records.save()
 	return render(request,"test/details.html")

@@ -7,9 +7,12 @@
 </head>
 <body>
     <h3>student details</h3>
-    <form action="{% url 'store'%}" method="POST">
+    <form action="{% url 'store'%}" method="POST"  enctype="multipart/form-data">
         {% csrf_token%}
         <table>
+            <tr>
+                <td><input type="file"  name="image" placeholder="upload image" required></td>
+            </tr>
             <tr>
                 <td><input type="text" name="name" placeholder="enter Name" required></td>
             </tr>
@@ -17,12 +20,15 @@
                 <td><input type="text" name="fathername" placeholder="enter Fathername" required></td>
             </tr>
             <tr>
-                <td><input type="radio" name="gender">Male
-                    <input type="radio" name="gender">female
+                <td><input type="radio" name="gender" value="male">Male
+                    <input type="radio" name="gender" value="female">female
                 </td>
             </tr>
             <tr>
-                <td><input type="date" name="dob" placeholder="enter Dob" required></td>
+                <td> enter dob</td>
+            </tr>
+            <tr>
+                <td><input type="date" name="dob"  required></td>
             </tr>
             <tr>
                 <td><input type="email" name="email" placeholder="enter Email" required></td>

@@ -1,3 +1,4 @@
+{% load staticfiles%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +8,11 @@
 </head>
 <body>
     <h3>view student details</h3>
-    <table border="10">
+    <table border="11">
         <thead>
             <tr>
                 <td>id</td>
+                <td>image</td>
                 <td>name</td>
                 <td>fathername</td>
                 <td>gender</td>
@@ -23,6 +25,7 @@
             {%for mov in getdetails%}
             <tr>
                 <td>{{mov.id}}</td>
+                <td><img src="{{mov.image.url }}" height=100px width="100px"></td>
                 <td>{{mov.name}}</td>
                 <td>{{mov.fathername}}</td>
                 <td>{{mov.gender}}</td>
@@ -42,7 +45,7 @@
 </body>
 <div>
     <ul>
-    <li><a href="#">go back</a></li>
+    <li><a href="{% url 'home' %}">go back</a></li>
     </ul>
     </div>
 </html>
