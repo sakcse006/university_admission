@@ -16,11 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from .import views
 
+
 urlpatterns = [
     url(r'^$',views.index,name='index'),
     url(r'^home/$',views.home,name='home'),
     url(r'^details/$',views.details,name='details'),
     url(r'^store/$',views.store,name='store'),
     url(r'^view/$',views.view,name='view'),
-
+    url(r'^delete/(?P<pk>\d+)/$', views.delete, name="delete"),
+    
 ]

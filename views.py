@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.core.files.storage import FileSystemStorage
 from .models import office
@@ -45,3 +45,17 @@ def store(request):
 def view(request):
 	getdetail=record.objects.all()
 	return render(request,"test/view.html",{'getdetails':getdetail})
+def delete(request,pk):
+	print("ok go heard")
+	dels=record.objects.get(pk=pk)
+	dels.delete()
+	return redirect("view")
+def edit(request,pk):
+	print("fine")
+	student=record.objects.get(pk=pk)
+	return render(request,"test/edit.html",{'student':student})
+def update(request,pk):
+	print("process")
+	student=record.objects.get(pk=pk)
+	student.save()
+	return render(request,"test/edit.html",{'student':student})
