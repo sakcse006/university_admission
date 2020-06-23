@@ -50,12 +50,3 @@ def delete(request,pk):
 	dels=record.objects.get(pk=pk)
 	dels.delete()
 	return redirect("view")
-def edit(request,pk):
-	print("fine")
-	student=record.objects.get(pk=pk)
-	return render(request,"test/edit.html",{'student':student})
-def update(request,pk):
-	print("process")
-	student=record.objects.get(pk=pk)
-	student.save()
-	return render(request,"test/edit.html",{'student':student})
