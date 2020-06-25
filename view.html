@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href={% static 'css/style.css' %}>
 </head>
 <body>
     <h3>view student details</h3>
@@ -19,7 +20,8 @@
                 <td>dob</td>
                 <td>email</td>
                 <td>mark</td>
-                <td>fees</td>
+                <td>paid fees</td>
+                <td>pending fees</td>
                 <td>phonenumber</td>
                 <td>address</td>
                 <td>delete</td>
@@ -34,6 +36,7 @@
                 <td>{{mov.email}}</td>
                 <td>{{mov.mark}}</td>
                 <td>{{mov.fees}}</td>
+                <td>{{mov.paid}}</td>
                 <td>{{mov.phonenumber}}</td>
                 <td>{{mov.address}}</td>
                 <td><a href="{%url 'delete' pk=mov.pk %}">delete</a></td>
@@ -48,7 +51,7 @@
 </body>
 <div>
     <ul>
-    <li><a href="{% url 'home' %}">go back</a></li>
+    <li><a href="{% url 'homepage' %}">go back</a></li>
     </ul>
     </div>
 </html>

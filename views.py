@@ -9,6 +9,7 @@ def index(request):
 	return render(request,"test/index.html")
 def home(request):
 	print("it working")
+	
 	request.method=='POST'
 	if office.objects.filter(name=request.POST['name'],password=request.POST['password']).exists():
 		return render(request,"test/home.html")
@@ -19,6 +20,7 @@ def home(request):
 
 def details(request):
 	return render(request,"test/details.html")
+
 def store(request): 
 	print("it working")
 	if request.method=='POST' and request.FILES['image']:
@@ -36,17 +38,21 @@ def store(request):
 	email=request.POST['email']
 	mark=request.POST['mark']
 	fees=request.POST['fees']
+	paid=50000-int(fees)
 	phonenumber=request.POST['phonenumber']
 	address=request.POST['address']
 	records=record(image=image, name=name,fathername=fathername,gender=gender,dob=dob,
-	 email=email,mark=mark,fees=fees,phonenumber=phonenumber, address=address)
+	 email=email,mark=mark,fees=fees,paid=paid,phonenumber=phonenumber, address=address)
 	records.save()
 	return render(request,"test/details.html")
 def view(request):
 	getdetail=record.objects.all()
+	
 	return render(request,"test/view.html",{'getdetails':getdetail})
 def delete(request,pk):
 	print("ok go heard")
 	dels=record.objects.get(pk=pk)
 	dels.delete()
 	return redirect("view")
+def homepage(request):
+	return render(request,"test/home.html")
